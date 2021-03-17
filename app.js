@@ -140,7 +140,7 @@ class Game extends Board {
     });
   }
 }
-console.log("test commit");
+
 const player1 = { name: "Bob", symbol: "X" };
 const player2 = { name: "ToD", symbol: "O" };
 
