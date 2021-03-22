@@ -1,3 +1,4 @@
+
 class Board {
   constructor() {
     this.grid = [
@@ -125,25 +126,43 @@ class Game extends Board {
     super();
     this.player1 = new Player(player1.name, player1.symbol);
     this.player2 = new Player(player2.name, player2.symbol);
+    this.currentPlayer = this.player1.name;
   }
-  playGame() {
+  switchTurns() {
+  
+    if (this.currentPlayer === this.player1.name) {
+      this.currentPlayer = this.player2.name;
+      let cord = window.prompt(`${this.player1.name} what is your coordinates?`);
+      console.log(cord);
+
+      let x = cord[0];
+      let y = cord[1];
+      let symbol = this.player1.symbol;
+    } else {
+      this.currentPlayer = this.player1.name;
+      window.prompt(`${this.player2.name} what is your coordinates?`);
+    }
     // while (this.checkWin()) {}
 
-    const readline = require("readline").createInterface({
-      input: process.stdin,
-      output: process.stdout,
-    });
+    // const readline = require("readline").createInterface({
+    //   input: process.stdin,
+    //   output: process.stdout,
+    // });
 
-    readline.question(`What's your name?`, (name) => {
-      console.log(`Hi ${name}!`);
-      readline.close();
-    });
+    // readline.question(`What's your name?`, (name) => {
+    //   console.log(`Hi ${name}!`);
+    //   readline.close();
+    // });
   }
 }
 
-const player1 = { name: "Bob", symbol: "X" };
-const player2 = { name: "ToD", symbol: "O" };
+let player1Name = window.prompt("What's Your Name Player 1");
+console.log(player1Name);
+let player2Name = window.prompt("What's Your Name Player 2");
+console.log(player2Name);
+const player1 = { name: player1Name, symbol: "X" };
+const player2 = { name: player2Name, symbol: "O" };
 
 const game = new Game(player1, player2);
 
-console.log(game.playGame());
+console.log(game.switchTurns());
