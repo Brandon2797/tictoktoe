@@ -1,16 +1,17 @@
 class Board {
   constructor() {
     this.grid = [
-      [" ", " ", " "],
+      ["", " ", " "],
       [" ", " ", " "],
       [" ", " ", " "],
     ];
   }
+ 
 
   placeSymbol(x, y, symbol) {
     this.grid[x][y] = symbol;
   }
-
+ 
   printGrid() {
     let stringyGrid = "";
 
